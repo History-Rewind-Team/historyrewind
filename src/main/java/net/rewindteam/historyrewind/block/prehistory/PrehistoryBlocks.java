@@ -1,4 +1,6 @@
 package net.rewindteam.historyrewind.block.prehistory;
 
-public class PrehistoryBlocks {
+import net.rewindteam.historyrewind.block.BlockRegHelper;
+
+public class PrehistoryBlocks extends BlockRegHelper {
 }

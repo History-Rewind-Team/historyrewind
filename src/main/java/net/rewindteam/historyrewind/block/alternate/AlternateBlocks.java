@@ -1,4 +1,6 @@
 package net.rewindteam.historyrewind.block.alternate;
 
-public class AlternateBlocks {
+import net.rewindteam.historyrewind.block.BlockRegHelper;
+
+public class AlternateBlocks extends BlockRegHelper {
 }
