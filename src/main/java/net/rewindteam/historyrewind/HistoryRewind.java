@@ -19,7 +19,7 @@ import org.slf4j.Logger;
 public class HistoryRewind {
 
     public static final String MODID = "historyrewind";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public HistoryRewind() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
