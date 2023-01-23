@@ -11,11 +11,10 @@ import net.rewindteam.historyrewind.item.ModItems;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.function.Supplier;
 
 @SuppressWarnings("unchecked")
-public class BlockRegHelper extends GeneralRegHelper {
+public class BlockRegistry extends GeneralRegHelper {
 
     static DeferredRegister<Block> BLOCKS;
 

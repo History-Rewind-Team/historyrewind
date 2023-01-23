@@ -11,6 +11,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.rewindteam.historyrewind.block.ModBlocks;
+import net.rewindteam.historyrewind.entity.Species;
 import net.rewindteam.historyrewind.handler.ServerEventHandler;
 import net.rewindteam.historyrewind.item.ModItems;
 import org.slf4j.Logger;
@@ -22,11 +23,14 @@ public class HistoryRewind {
     public static final Logger LOGGER = LogUtils.getLogger();
 
     public HistoryRewind() {
+        //On initialise
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::commonSetup);
 
         ModBlocks.registerAll(modEventBus);
         ModItems.registerAll(modEventBus);
+
+        Species.buildMap();
 
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new ServerEventHandler());

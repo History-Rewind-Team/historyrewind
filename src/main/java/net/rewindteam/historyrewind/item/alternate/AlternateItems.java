@@ -1,4 +1,7 @@
 package net.rewindteam.historyrewind.item.alternate;
 
-public class AlternateItems {
+import net.rewindteam.api.ItemRegHelper;
+
+public class AlternateItems extends ItemRegHelper {
+    
 }

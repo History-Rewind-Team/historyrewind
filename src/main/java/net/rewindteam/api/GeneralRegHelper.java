@@ -19,8 +19,8 @@ public class GeneralRegHelper {
     }
 
     public static void registerAll(IEventBus bus) {
-        for (DeferredRegister<?> allRegister : allRegisters) {
-            allRegister.register(bus);
+        for (DeferredRegister<?> allRegisters : allRegisters) {
+            allRegisters.register(bus);
         }
     }
 

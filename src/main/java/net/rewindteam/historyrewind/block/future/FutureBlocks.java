@@ -5,9 +5,9 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
-import net.rewindteam.api.BlockRegHelper;
+import net.rewindteam.api.BlockRegistry;
 
-public class FutureBlocks extends BlockRegHelper {
+public class FutureBlocks extends BlockRegistry {
 
 
     private static final DeferredRegister<Block> BLOCKS = newDeferredRegister();
