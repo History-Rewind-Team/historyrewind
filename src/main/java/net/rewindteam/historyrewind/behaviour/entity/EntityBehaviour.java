@@ -13,10 +13,12 @@ public class EntityBehaviour implements IEntityBehaviour{
     int maxGroupAmount;
     int preferableGroupAmount;
     Diet diet;
-    private BlockPos breedingCongregationSpot;
-    private int diameterOfBreedingCircle;
+    protected BlockPos breedingCongregationSpot;
+    protected int diameterOfBreedingCircle;
+    protected GeneralEntity entity;
 
     public EntityBehaviour(GeneralEntity entity, Diet diet) {
+        this.entity = entity;
         this.minGroupAmount = 0;
         this.maxGroupAmount = 0;
         this.preferableGroupAmount = 0;
@@ -24,6 +26,7 @@ public class EntityBehaviour implements IEntityBehaviour{
     }
 
     public EntityBehaviour(Diet diet) {
+        this.entity = null;
         this.minGroupAmount = 0;
         this.maxGroupAmount = 0;
         this.preferableGroupAmount = 0;
@@ -31,6 +34,7 @@ public class EntityBehaviour implements IEntityBehaviour{
     }
 
     public EntityBehaviour(GeneralEntity entity, Diet diet, int minGroupAmount, int maxGroupAmount) {
+        this.entity = entity;
         this.minGroupAmount = minGroupAmount;
         this.maxGroupAmount = maxGroupAmount;
         this.preferableGroupAmount = -1;
@@ -38,6 +42,7 @@ public class EntityBehaviour implements IEntityBehaviour{
     }
 
     public EntityBehaviour(GeneralEntity entity, Diet diet, int minGroupAmount, int maxGroupAmount, int preferableGroupAmount) {
+        this.entity = entity;
         this.minGroupAmount = minGroupAmount;
         this.maxGroupAmount = maxGroupAmount;
         this.preferableGroupAmount = preferableGroupAmount;
@@ -45,6 +50,7 @@ public class EntityBehaviour implements IEntityBehaviour{
     }
 
     public EntityBehaviour(Diet diet, int minGroupAmount, int maxGroupAmount) {
+        this.entity = null;
         this.minGroupAmount = minGroupAmount;
         this.maxGroupAmount = maxGroupAmount;
         this.preferableGroupAmount = -1;
@@ -52,10 +58,15 @@ public class EntityBehaviour implements IEntityBehaviour{
     }
 
     public EntityBehaviour(Diet diet, int minGroupAmount, int maxGroupAmount, int preferableGroupAmount) {
+        this.entity = null;
         this.minGroupAmount = minGroupAmount;
         this.maxGroupAmount = maxGroupAmount;
         this.preferableGroupAmount = preferableGroupAmount;
         this.diet = diet;
+    }
+
+    public Diet getDiet() {
+        return this.diet;
     }
 
     public BlockPos getBreedingAreaCenter() {

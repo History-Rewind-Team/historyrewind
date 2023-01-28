@@ -16,17 +16,17 @@ public class BDeferredRegister<T> {
     static LinkedList<?> list = new LinkedList<>();
     DeferredRegister<? extends T> defReg;
 
+    @SuppressWarnings("unchecked")
     private BDeferredRegister(IForgeRegistry<?> type) {
-        defReg = DeferredRegister.create(type, HistoryRewind.MODID);
+        defReg = (DeferredRegister<? extends T>) DeferredRegister.create(type, HistoryRewind.MODID);
     }
 
-    @SuppressWarnings("all")
+    @SuppressWarnings("")
     public static <T> BDeferredRegister<T> create(IForgeRegistry<?> type) {
         return new BDeferredRegister<>(type);
     }
 
     public <Y extends T> RegistryObject<Y> register(String name, Supplier<? extends Y> supplier) {
-        RegistryObject<Y> object = defReg.register(name, supplier).orElse(null);
-        return object;
+        return (RegistryObject<Y>) defReg.register(name, supplier).orElse(null);
     }
 }

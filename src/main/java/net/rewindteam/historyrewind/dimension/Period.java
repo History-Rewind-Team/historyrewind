@@ -1,5 +1,7 @@
 package net.rewindteam.historyrewind.dimension;
 
+import net.rewindteam.api.IndexableMap;
+
 public enum Period {
     PALEOZOIC,
     MESOZOIC,

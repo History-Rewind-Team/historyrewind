@@ -12,8 +12,13 @@ public class BlockMaths {
         BlockPos zMost;
         //North, south, east and west
         for(int i = 1; i < radius; i++) {
-            positions.put(center.offset(i, 0, 0), i);
-            for(int j = 1; j < )
+            for(int j = 0; j < (radius / 2); j++) {
+                positions.put(center.offset(i, 0, j), i + j);
+            }
+
+            for(int j = -1; j > -(radius / 2); j++) {
+                positions.put(center.offset(i, 0, j), i + j);
+            }
         }
         for(int i = 1; i < radius; i++) {
             positions.put(center.offset(0, i, 0), i);

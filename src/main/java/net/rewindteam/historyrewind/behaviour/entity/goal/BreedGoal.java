@@ -1,9 +1,8 @@
-package net.rewindteam.historyrewind.behaviour.intention.goal;
+package net.rewindteam.historyrewind.behaviour.entity.goal;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.rewindteam.historyrewind.behaviour.entity.EntityBehaviour;
-import net.rewindteam.historyrewind.dimension.Period;
+import net.rewindteam.historyrewind.entity.GeneralEntity;
 import net.rewindteam.historyrewind.entity.Species;
 
 public class BreedGoal extends Goal {
@@ -19,7 +18,12 @@ public class BreedGoal extends Goal {
     }
 
     @Override
-    public void execute() {
+    public void execute(GeneralEntity entity) {
 
+    }
+
+    @Override
+    public boolean executeWithResult(GeneralEntity entity) {
+        return false;
     }
 }

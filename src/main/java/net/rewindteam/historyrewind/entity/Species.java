@@ -1,5 +1,6 @@
 package net.rewindteam.historyrewind.entity;
 
+import net.minecraft.world.entity.ai.behavior.Behavior;
 import net.rewindteam.api.ArrayManipulator;
 import net.rewindteam.api.IndexableMap;
 import net.rewindteam.historyrewind.behaviour.entity.Diet;
@@ -14,14 +15,17 @@ public class Species extends SpeciesBuilder {
 
     static IndexableMap<Period, Species[]> periodSpecies = new IndexableMap<>();
     static ArrayManipulator<Species> arrayManipulator = new ArrayManipulator<>();
+    static EntityBehaviour defaultBehaviour;
 
     Species[] species2Avoid;
 
     String name;
     Diet defaultDiet;
 
-    protected Species(Diet defaultDiet, Period period, String name) {
-        super(defaultDiet);
+    protected Species(EntityBehaviour behaviour, Period period, String name) {
+        super(behaviour.getDiet());
+        defaultBehaviour = behaviour;
+        defaultDiet = behaviour.getDiet();
         Species[] speciesInPeriod = periodSpecies.get(period);
         assert speciesInPeriod != null;
         boolean alreadyExists = false;
@@ -36,8 +40,8 @@ public class Species extends SpeciesBuilder {
                     new Species(defaultDiet, name)));
     }
 
-    public static Species register(Diet defaultDiet, Period period, String name) {
-        return new Species(defaultDiet, period, name);
+    public static Species register(EntityBehaviour behaviour, Period period, String name) {
+        return new Species(behaviour, period, name);
     }
 
     public Species[] getSpecies2Avoid() {
@@ -49,6 +53,9 @@ public class Species extends SpeciesBuilder {
         this.name = name;
     }
 
+    public EntityBehaviour getDefaultBehaviour() {
+        return defaultBehaviour;
+    }
     private Species(Diet defaultDiet, String name, EntityBehaviour behaviour) {
         super(defaultDiet, behaviour);
         this.name = name;
